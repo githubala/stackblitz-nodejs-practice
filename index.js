@@ -9,9 +9,11 @@
 //   'notes.txt',
 //   'and i would be able to finish the course on time'
 // );
-//const chalk = require('chalk');
+const chalk = require('chalk');
+const validator = require('validator');
 const notes = require('./notes.js');
 
-//const msg = chalk.green('success');
+const msg = chalk.red('success');
+console.log(validator.isEmail('bala@gmail.com'))
 console.log(notes);
-//console.log(msg);
+console.log(msg);
