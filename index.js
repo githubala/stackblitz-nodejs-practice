@@ -1,6 +1,7 @@
 // run `node index.js` in the terminal
 
 const command = require("nodemon/lib/config/command");
+const yargs = require('yargs')
 
 //console.log(`Hello Node.js v${process.versions.node}!`);
 
@@ -20,9 +21,41 @@ const command = require("nodemon/lib/config/command");
 // console.log(notes);
 // console.log(msg);
 
-console.log(process.argv);
-const command1 = process.argv[2]
+// console.log(process.argv);
+// const command1 = process.argv[2]
 
-if(command1 == 'bala'){
-    console.log('my name is '+command1);
-}
+// if(command1 == 'bala'){
+//     console.log('my name is '+command1);
+// }
+
+// console.log(yargs.argv)
+
+yargs.command({
+    command:'add',
+    describe:'add the note',
+    handler: function(){
+        console.log('this is a add note function ')
+    }
+})
+yargs.parse();
+//console.log(yargs.argv);
+
+//create remove command
+yargs.command({
+    command:'remove',
+    describe:'remove the note',
+    builder:{
+        title: {
+        describe:'removing the note',
+        demandOption:true,
+        //type:'string'
+        }
+    },
+    handler: function (argv) {
+        //console.log('remove the node  ', argv)
+        console.log('title: '+argv.title)
+    }
+})
+
+//console.log(yargs.argv);
+yargs.parse();
