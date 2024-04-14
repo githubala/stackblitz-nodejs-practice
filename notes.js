@@ -7,9 +7,9 @@ const getNotes = function () {
 const addNote = function(title, body){
 
   const notes = loadNotes()
-  notes.push({
-    title:
-  })
+  // notes.push({
+  //   title:
+  // })
 }
 
 const loadNotes = function(){
