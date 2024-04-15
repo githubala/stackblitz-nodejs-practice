@@ -29,6 +29,7 @@ yargs.command({
 
 yargs.command({
     command:'remove'
+    
 }    
 )
 
