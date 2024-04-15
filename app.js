@@ -27,4 +27,9 @@ yargs.command({
     }
 })
 
+yargs.command({
+    command:'remove'
+}    
+)
+
 yargs.parse();
