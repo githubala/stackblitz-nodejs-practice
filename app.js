@@ -1,6 +1,8 @@
 //const add = require('./utils');
 const sum = require('./utils')
 
+const notes = require('./notes');
+
 //console.log(sum(3,4));
 
 const yargs = require('yargs')
@@ -16,12 +18,12 @@ yargs.command({
         },
         body: {
             describe:'adding body of the note',
-           demandOption:false,
-           type:'string'
+            demandOption:false,
+            type:'string'
         }
     },
     handler:function(argv){
-     console.log('adding the node', argv);
+     notes.addNote(argv.title, argv.body);
     }
 })
 
