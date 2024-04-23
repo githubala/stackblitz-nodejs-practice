@@ -57,10 +57,26 @@ const listNotes = function(){
 }
 
 
+//yargs read the notes
+
+const readNote = function(title){
+  const notes = loadNotes()
+  
+  const note = notes.find((note) => note.title === title)
+  if(note){
+    console.log(chalk.green.inverse(`this is the title ${note.title} and body ${note.body}`));
+  }else{
+    console.log(chalk.red.inverse(`we do not have such title `));
+  }
+}
+
+
+
 
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote:removeNote,
-  listNotes:listNotes
+  listNotes:listNotes,
+  readNote:readNote
 }

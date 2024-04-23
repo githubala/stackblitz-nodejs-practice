@@ -51,20 +51,21 @@ yargs.command({
     handler:function(){
         notes.listNotes();
     }
-  })
+  }) 
 
 yargs.command({
     command:'read',
-    describe:'read the selected note with body',
+    describe:'read a note',
     builder:{
         title:{
-            describe:'this will display the selected title with body',
+            describe:'reading a note',
             demandOption:true,
-            handler:function(argv){
-                notes.read(argv.title);
-            }
+            type:'string'
         }
+    },
+    handler:function(argv){
+        notes.readNote(argv.title);
     }
-})  
-
+    
+})
 yargs.parse();
