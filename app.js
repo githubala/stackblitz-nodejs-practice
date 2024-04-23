@@ -44,4 +44,28 @@ yargs.command({
 }    
 )
 
+//yargs list of the titles
+yargs.command({
+    command:'listNotes',
+    describe:'this command will display list of the notes',    
+    handler:function(){
+        notes.listNotes();
+    }
+  }) 
+
+yargs.command({
+    command:'read',
+    describe:'read a note',
+    builder:{
+        title:{
+            describe:'reading a note',
+            demandOption:true,
+            type:'string'
+        }
+    },
+    handler:function(argv){
+        notes.readNote(argv.title);
+    }
+    
+})
 yargs.parse();
