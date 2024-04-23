@@ -12,6 +12,9 @@ const addNote = function(title, body){
 const Duplicate = notes.filter(function(note){
 return note.title === title;
 })
+
+debugger;
+
 if(Duplicate.length === 0){
   notes.push({
     title:title,
@@ -19,7 +22,7 @@ if(Duplicate.length === 0){
   })
   
   saveNotes(notes)
-  console.log(chalk.green.inverse('add new unique title'))
+  console.log(chalk.green.inverse('added new unique title'))
 
 } else {
   console.log(chalk.red.inverse('title already exists'));
