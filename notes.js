@@ -1,4 +1,6 @@
-const fs = require('fs')
+const chalk = require('chalk');
+const fs = require('fs');
+const yargs = require('yargs');
 
 const getNotes = function () {
   return 'your notes ...';
@@ -17,8 +19,10 @@ if(Duplicate.length === 0){
   })
   
   saveNotes(notes)
+  console.log(chalk.green.inverse('add new unique title'))
+
 } else {
-  console.log('title already exists')
+  console.log(chalk.red.inverse('title already exists'));
 }
 }
 
@@ -44,8 +48,19 @@ const removeNote = function(title){
   saveNotes(notesToKeep)
 }
 
+//yargs list of notes
+const listNotes = function(){
+  const notes = loadNotes()
+  notes.forEach(note => {
+    console.log(note.title);
+  });
+}
+
+
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
-  removeNote:removeNote
+  removeNote:removeNote,
+  listNotes:listNotes
 }
